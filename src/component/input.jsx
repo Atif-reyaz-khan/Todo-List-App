@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 function  CreateArea(props){
+    
     const [note,setnote]=useState(
         {
             title:"",
             content:"",
         })
+      
+        
         function Onhandle(event){
             const {name,value}=event.target;
             
@@ -22,6 +25,7 @@ function  CreateArea(props){
         function sumitted(event){
 
             event.preventDefault();
+
             props.Add(note);
             setnote({
                 title:"",
@@ -32,11 +36,11 @@ function  CreateArea(props){
     return (
         <div>
            <form >
-           <input onChange={Onhandle} name="title" value={note.title} placeholder="Title"/>
+           <input onChange={Onhandle} name="title" value={note.title} placeholder="Title" required/>
             <textarea name="content" onChange={Onhandle}
               rows="3"
               placeholder="Enter Content"
-              value={note.content}></textarea>
+              value={note.content} required></textarea>
             <button onClick={sumitted}>Add</button>
            </form>
         </div>

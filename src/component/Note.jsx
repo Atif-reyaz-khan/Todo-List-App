@@ -5,6 +5,7 @@ import React from 'react'
 function Note(props){
     function handleClick(){
         props.Del(props.id);
+        console.log(props.id);
 
     }
     return(<div className="note"><h1>{props.title}</h1>
